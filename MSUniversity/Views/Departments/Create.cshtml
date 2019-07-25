@@ -1,0 +1,15 @@
+﻿@model MSUniversity.Models.Department
+
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("Create", "Departments", FormMethod.Post,null))
+{
+    @Html.LabelFor(m=>m.Name)
+    @Html.EditorFor(m=>m.Name)
+
+    @Html.LabelFor(m=>m.Code)
+    @Html.EditorFor(m=>m.Code)
+
+    <input type="submit"  value="Save"/>
+}
