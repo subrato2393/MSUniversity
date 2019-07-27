@@ -23,5 +23,9 @@ namespace MSUniversity.BLL
                 return false;
             }
         }
+        public List<Department> GetAll()
+        {
+            return _repository.GetAll();
+        }
     }
 }

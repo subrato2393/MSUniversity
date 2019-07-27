@@ -17,10 +17,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    @*<i class="fas fa-laugh-wink"></i>*@
+                    <i class="fas fa-graduation-cap"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">University <sup>MS</sup></div>
+                <div class="sidebar-brand-text mx-3">MSUniversity</div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -46,8 +47,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="#">Save Department</a>
-                        <a class="collapse-item" href="#">View All Department</a>
+                        @*<a class="collapse-item" href="#">Save Department</a>*@
+                        @Html.ActionLink("Save Department", "Create","Departments", null, new {@class= "collapse-item" })
+                        @Html.ActionLink("View All Department","GetAllDepartment",null,new { @class="collapse-item"})
                     </div>
                 </div>
             </li>

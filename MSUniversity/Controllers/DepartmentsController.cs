@@ -11,6 +11,7 @@ namespace MSUniversity.Controllers
 {
     public class DepartmentsController : Controller
     {
+        DepartmentManager _manager = new DepartmentManager();
         // GET: Departments
         public ActionResult Index()
         {
@@ -24,9 +25,24 @@ namespace MSUniversity.Controllers
         [HttpPost]
         public ActionResult Create(Department department)
         {
-           DepartmentManager _manager = new DepartmentManager();
-           bool IsSaved=_manager.Add(department);
+            if (ModelState.IsValid)
+            {
+                bool IsSaved = _manager.Add(department);
+                if(IsSaved)
+                {
+                    ViewBag.Message = "Saved Successfully";
+                }
+                else
+                {
+                    ViewBag.Message = "Saved Failed";
+                }
+            }
            return View();
+        }
+        public ActionResult GetAllDepartment()
+        {
+           var departments= _manager.GetAll();
+            return View(departments);
         }
     }
 }

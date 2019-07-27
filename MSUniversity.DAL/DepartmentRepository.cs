@@ -33,5 +33,26 @@ namespace MSUniversity.DAL
                 return false;
             }
         }
+        public List<Department> GetAll()
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand("GetAllDepartment", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            connection.Open();
+            da.Fill(dt);
+            connection.Close();
+            var departments = new List<Department>();
+            
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var department = new Department();
+                department.Name = dt.Rows[i]["Name"].ToString();
+                department.Code = dt.Rows[i]["Code"].ToString();
+                departments.Add(department);
+            }
+            return departments;
+        }
     }
 }
