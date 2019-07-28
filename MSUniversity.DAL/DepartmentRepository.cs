@@ -48,6 +48,7 @@ namespace MSUniversity.DAL
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 var department = new Department();
+                department.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                 department.Name = dt.Rows[i]["Name"].ToString();
                 department.Code = dt.Rows[i]["Code"].ToString();
                 departments.Add(department);
