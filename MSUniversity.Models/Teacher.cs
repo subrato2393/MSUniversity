@@ -13,8 +13,14 @@ namespace MSUniversity.Models
         public string Address { get; set; }
         public string Email { get; set; }
         public string ContactNo { get; set; }
-        public string Designation { get; set; }
-        public string CreditToTaken { get; set; }
+        public TeacherDesignation  Designation { get; set; }
+        public int CreditToTaken { get; set; }
         public string DepartmentId { get; set; }
+    }
+    public enum TeacherDesignation
+    {
+        Lecturer,
+        SeniorLecturer,
+        Professor
     }
 }

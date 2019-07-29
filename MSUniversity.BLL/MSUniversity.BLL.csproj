@@ -44,6 +44,7 @@
     <Compile Include="CourseManager.cs" />
     <Compile Include="DepartmentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeacherManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MSUniversity.DAL\MSUniversity.DAL.csproj">
