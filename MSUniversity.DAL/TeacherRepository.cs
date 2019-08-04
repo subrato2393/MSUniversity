@@ -24,11 +24,11 @@ namespace MSUniversity.DAL
             command.Parameters.AddWithValue("@ContactNo", teacher.ContactNo);
             command.Parameters.AddWithValue("@Designation", teacher.Designation);
             command.Parameters.AddWithValue("@DepartmentId", teacher.DepartmentId);
-            command.Parameters.AddWithValue("@CreditToTaken",teacher.CreditToTaken);
+            command.Parameters.AddWithValue("@CreditToTaken", teacher.CreditToTaken);
             connection.Open();
-            int rowsAffected=command.ExecuteNonQuery();
+            int rowsAffected = command.ExecuteNonQuery();
             connection.Close();
-            if(rowsAffected>0)
+            if (rowsAffected > 0)
             {
                 return true;
             }
@@ -36,6 +36,33 @@ namespace MSUniversity.DAL
             {
                 return false;
             }
+        }
+        public List<Teacher> GetAll()
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand("GetAllTeacher", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            connection.Open();
+            da.Fill(dt);
+            connection.Close();
+            var teachers = new List<Teacher>();
+
+            for (int i = 0; i < dt.Rows.Count;i++)
+            {
+                var teacher = new Teacher();
+                teacher.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
+                teacher.Name = dt.Rows[i]["Name"].ToString();
+                teacher.Address= dt.Rows[i]["Address"].ToString();
+                teacher.ContactNo = dt.Rows[i]["ContactNo"].ToString();
+                teacher.CreditToTaken=Convert.ToInt32(dt.Rows[i]["CreditToTaken"]);
+                teacher.Designation = teacher.Designation;
+                teacher.DepartmentId = Convert.ToInt32(dt.Rows[i]["DepartmentId"]);
+                teacher.Email = dt.Rows[i]["Email"].ToString();
+                teachers.Add(teacher);
+            }
+            return teachers;
         }
     }
 }

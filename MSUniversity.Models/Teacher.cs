@@ -15,7 +15,7 @@ namespace MSUniversity.Models
         public string ContactNo { get; set; }
         public TeacherDesignation  Designation { get; set; }
         public int CreditToTaken { get; set; }
-        public string DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
     }
     public enum TeacherDesignation
     {

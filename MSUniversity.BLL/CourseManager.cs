@@ -23,5 +23,10 @@ namespace MSUniversity.BLL
                 return false;
             }
         }
+        public List<Course> GetAll()
+        {
+            var courses=_repository.GetAll();
+            return courses;
+        }
     }
 }

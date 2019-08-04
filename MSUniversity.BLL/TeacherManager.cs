@@ -23,5 +23,10 @@ namespace MSUniversity.BLL
                 return false;
             }
         }
+        public List<Teacher> GetAll()
+        {
+            var teachers=_teacherRepository.GetAll();
+            return teachers;
+        }
     }
 }
