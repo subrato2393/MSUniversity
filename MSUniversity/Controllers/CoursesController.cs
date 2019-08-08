@@ -19,16 +19,16 @@ namespace MSUniversity.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.DepartmentId = new SelectList(departmentManager.GetAll(),"Id","Name");
+            ViewBag.DepartmentId = new SelectList(departmentManager.GetAll(), "Id", "Name");
             return View();
         }
 
         [HttpPost]
         public ActionResult Create(Course course)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-               bool IsSaved= _manager.Add(course);
+                bool IsSaved = _manager.Add(course);
                 if (IsSaved)
                 {
                     ViewBag.Message = "Saved Successfully";
@@ -38,8 +38,20 @@ namespace MSUniversity.Controllers
                     ViewBag.Message = "Saved Failed";
                 }
             }
-            ViewBag.DepartmentId = new SelectList(departmentManager.GetAll(),"Id", "Name");
+            ViewBag.DepartmentId = new SelectList(departmentManager.GetAll(), "Id", "Name");
             return View();
+        }
+
+        public ActionResult ViewCourseStatics()
+        {
+            ViewBag.DepartmentId = new SelectList(departmentManager.GetAll(), "Id", "Name");
+            return View();
+        }
+
+        public JsonResult GetCourseStatics(int departmentId)
+        {
+            var courses = _manager.GetCourseStatics().Where(x => x.DepartmentId == departmentId);
+            return Json(courses, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -1,0 +1,71 @@
+﻿@model MSUniversity.ViewModels.CourseTeacherVM
+@{
+    ViewBag.Title = "ViewCourseStatics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewCourseStatics</h2>
+<div>
+
+</div>
+<hr />
+@using (Html.BeginForm("ViewCourseStatics", "Course", FormMethod.Post))
+{
+    <div class="form-group col-lg-4">
+        @Html.DropDownListFor(m => m.DepartmentId, null, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <h3>Course Information</h3>
+        <div>
+
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Code</td>
+                    <td>Name/Title</td>
+                    <td>Semester</td>
+                    <td>Assigned To</td>
+                </tr>
+            </thead>
+            <tbody id="courseTable"></tbody>
+        </table>
+    </div>
+}
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#DepartmentId').change(function () {
+                $("#courseTable").empty();
+                //$('#TeacherId').empty();
+                //$("#TeacherId").append('<option value="">--Select--</option>')
+                var deptId = $('#DepartmentId').val();
+                var json = { departmentId: deptId };
+                $.ajax({
+                    type: "POST",
+                    url: '/Courses/GetCourseStatics',
+                    contentType: "application/json",
+                    data: JSON.stringify(json),
+                    success: function (data) {
+                        $.each(data, function (key, value) {
+                            //alert(value.Name);
+                            //if (value.Code == "" && value.CourseName == "" && value.Semester == "" && value.TeacherName == "")
+                            //{
+                            //    $("#courseTable").append('<tr><td>"Empty"</td><td>"Empty"</td><td>"Empty"</td><td>"Empty"</td></tr>')
+                            //}
+                            if (value.TeacherName ==null) {
+                                alert("empty");
+                                //$("#courseTable").append('<tr><td>' + value.Code + '</td><td>' + value.CourseName + '</td><td>' + value.Semester + '</td><td>"Not Assign Yet"</td></tr>')
+                            }
+                          
+                                $("#courseTable").append('<tr><td>' + value.Code + '</td><td>' + value.CourseName + '</td><td>' + value.Semester + '</td><td>' + value.TeacherName + '</td></tr>')
+  
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+}
+

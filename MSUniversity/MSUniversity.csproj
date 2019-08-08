@@ -211,6 +211,7 @@
     <Content Include="Views\Courses\Create.cshtml" />
     <Content Include="Views\Teachers\Create.cshtml" />
     <Content Include="Views\CourseAssign\Create.cshtml" />
+    <Content Include="Views\Courses\ViewCourseStatics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -239,6 +240,10 @@
     <ProjectReference Include="..\MSUniversity.Models\MSUniversity.Models.csproj">
       <Project>{4179FA44-749B-469C-B7C3-C0CB59346CED}</Project>
       <Name>MSUniversity.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSUniversity.ViewModels\MSUniversity.ViewModels.csproj">
+      <Project>{C81C1F91-D400-4218-A23C-D4A5082614A3}</Project>
+      <Name>MSUniversity.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

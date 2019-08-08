@@ -1,4 +1,5 @@
 ﻿using MSUniversity.Models;
+using MSUniversity.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -55,10 +56,34 @@ namespace MSUniversity.DAL
                 course.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                 course.Name = dt.Rows[i]["Name"].ToString();
                 course.Code = dt.Rows[i]["Code"].ToString();
-                course.Credit = dt.Rows[i]["Credit"].ToString();
+                course.Credit = Convert.ToInt32(dt.Rows[i]["Credit"]);
                 course.Description = dt.Rows[i]["Description"].ToString();
                 course.Semester = course.Semester;
                 course.DepartmentId =Convert.ToInt32(dt.Rows[i]["DepartmentId"]);
+                courses.Add(course);
+            }
+            return courses;
+        }
+        public List<CourseTeacherVM> GetCourseStatics()
+        {
+            SqlConnection connection = new SqlConnection(connectionStrings);
+            SqlCommand command = new SqlCommand("GetCourseStatics", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            connection.Open();
+            da.Fill(dt);
+            connection.Close();
+            var courses = new List<CourseTeacherVM>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var course = new CourseTeacherVM();
+                course.DepartmentId = Convert.ToInt32(dt.Rows[i]["DepartmentId"]);
+                course.CourseName = dt.Rows[i]["CName"].ToString();
+                course.Code = dt.Rows[i]["Code"].ToString();
+                course.Semester = course.Semester;
+                course.TeacherName = dt.Rows[i]["TName"].ToString();
                 courses.Add(course);
             }
             return courses;

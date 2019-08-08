@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MSUniversity.Models
+namespace MSUniversity.ViewModels
 {
-    public class Course
+    public class CourseTeacherVM
     {
-        public int Id { get; set; }
         public string Code { get; set; }
-        public string Name { get; set; }
-        public int Credit { get; set; }
-        public string Description { get; set; }
-        public int DepartmentId { get; set; }
+        public string CourseName { get; set; }
+        public string TeacherName { get; set; }
         public CourseSemester Semester { get; set; }
+        public int DepartmentId { get; set; }
     }
     public enum CourseSemester
     {
-       SelectSemester,
+        SelectSemester,
         First,
         Second,
         Third,

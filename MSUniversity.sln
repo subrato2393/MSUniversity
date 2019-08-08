@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSUniversity.BLL", "MSUnive
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSUniversity.DAL", "MSUniversity.DAL\MSUniversity.DAL.csproj", "{4B3C4634-B305-4A74-A1D1-0C0F8B851574}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSUniversity.ViewModels", "MSUniversity.ViewModels\MSUniversity.ViewModels.csproj", "{C81C1F91-D400-4218-A23C-D4A5082614A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4B3C4634-B305-4A74-A1D1-0C0F8B851574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B3C4634-B305-4A74-A1D1-0C0F8B851574}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B3C4634-B305-4A74-A1D1-0C0F8B851574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C81C1F91-D400-4218-A23C-D4A5082614A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81C1F91-D400-4218-A23C-D4A5082614A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81C1F91-D400-4218-A23C-D4A5082614A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81C1F91-D400-4218-A23C-D4A5082614A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,6 @@
 ﻿using MSUniversity.DAL;
 using MSUniversity.Models;
+using MSUniversity.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,11 @@ namespace MSUniversity.BLL
         public List<Course> GetAll()
         {
             var courses=_repository.GetAll();
+            return courses;
+        }
+        public List<CourseTeacherVM> GetCourseStatics()
+        {
+            var courses = _repository.GetCourseStatics();
             return courses;
         }
     }
