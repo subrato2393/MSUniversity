@@ -17,3 +17,4 @@ University Course and Result Management System
 ![14 Unallocate ClassRoom](https://user-images.githubusercontent.com/71623017/124110437-0807c100-da8a-11eb-844c-538c0085d87c.PNG)
 ![15 Happy Coding](https://user-images.githubusercontent.com/71623017/124110445-0b9b4800-da8a-11eb-80d0-8208d2ac3dc5.PNG)
 
+[Specification-of-University-Course-and-Result-Management-System.pdf](https://github.com/subrato2393/MSUniversity/files/6747499/Specification-of-University-Course-and-Result-Management-System.pdf)
