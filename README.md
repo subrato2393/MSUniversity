@@ -1,6 +1,12 @@
 # Project Title
 University Course and Result Management System
 
+Technology Used
+
+C#, ASP.NET MVC, Entity Framework, MSSQL Server, HTML5,
+CSS3, jQuery, Ajax, Booststrap
+
+
 ![1 Save Department](https://user-images.githubusercontent.com/71623017/124110197-ce36ba80-da89-11eb-914f-7149d40e7e12.PNG)
 ![2 view department](https://user-images.githubusercontent.com/71623017/124110222-d42c9b80-da89-11eb-95f5-c3bd3afb73fe.PNG)
 ![3 save course](https://user-images.githubusercontent.com/71623017/124110247-da227c80-da89-11eb-9004-4542526f213e.PNG)
